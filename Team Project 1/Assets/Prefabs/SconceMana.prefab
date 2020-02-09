@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4158818658796374130}
   - component: {fileID: 4158818658796374131}
   m_Layer: 0
-  m_Name: Sconce
+  m_Name: SconceMana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 6112688729844409573, guid: 3f5b08d25f3aea842a6b79f2e73de176, type: 3}
+  hitSound: {fileID: 3723597428472204206, guid: 5c875a8aca04b2c49b2995f634559f9e,
+    type: 3}
 --- !u!61 &4158818658796374130
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BreakableController : MonoBehaviour
 {
-    public GameObject spawn;
+    public GameObject spawn, hitSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,7 @@ public class BreakableController : MonoBehaviour
     {
         if (collision.CompareTag("Attack"))
         {
+            Instantiate(hitSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             if (spawn != null)
             {
                 Instantiate(spawn, transform.position, transform.rotation);

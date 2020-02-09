@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 4584102710577459073, guid: 294f9cfd0d24634458363f3217ce78a8, type: 3}
+  hitSound: {fileID: 3723597428472204206, guid: 5c875a8aca04b2c49b2995f634559f9e,
+    type: 3}
 --- !u!61 &2779088369389171586
 BoxCollider2D:
   m_ObjectHideFlags: 0

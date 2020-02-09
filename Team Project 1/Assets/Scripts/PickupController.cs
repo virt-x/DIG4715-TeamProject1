@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickupController : MonoBehaviour
 {
     public int id;
-    public GameObject magic, mana;
+    public GameObject magic, mana, breakSound;
     private PlayerController player;
     private float lifetime;
     // Start is called before the first frame update
@@ -41,6 +41,7 @@ public class PickupController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(breakSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             Destroy(gameObject);
         }
     }

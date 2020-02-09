@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     private float movement;
     public GameCharacter characterA, characterB, activeCharacter, inactiveCharacter;
     public Animator animator;
-    public GameObject healthMeter, manaMeter, attackBox, spearProjectile, hammerProjectile, rosaryProjectile, boomerangProjectile, magicProjectile, l2scrollLimitL, l2scrollLimitR, l2spawn;
+    public GameObject healthMeter, manaMeter, attackBox, spearProjectile, hammerProjectile, rosaryProjectile, boomerangProjectile, magicProjectile, l2scrollLimitL, l2scrollLimitR, l2spawn, attackSound, damageSound, throwSound, castSound;
     private float swapDelay, damageDelay, attackDelay, gameTime, deathDelay;
     public UnityEngine.UI.Text timeText, subText;
     public UnityEngine.UI.Image subImage, portraitImage, levelPanel;
     public Sprite spear, hammer, rosary, boomerang, magic, portraitA, portraitB;
+    public AudioSource music;
+    public AudioClip level2Music, levelClear;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +79,10 @@ public class PlayerController : MonoBehaviour
 
         if (activeCharacter.Health < 1)
         {
+            if (inactiveCharacter.Health < 1)
+            {
+                music.Stop();
+            }
             damaged = true;
             animator.SetBool("Walking", false);
             movement = 0;
@@ -188,6 +194,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && (Time.time > attackDelay + 0.5f))
         {
+            Instantiate(attackSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             animator.SetBool("Attacking", true);
             StartCoroutine(AttackAnimationDelay());
             attackDelay = Time.time;
@@ -206,6 +213,14 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("Sub", true);
                     attackDelay = Time.time;
                     movement = 0;
+                    if (activeCharacter == characterA)
+                    {
+                        Instantiate(throwSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
+                    }
+                    else
+                    {
+                        Instantiate(castSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
+                    }
                     StartCoroutine(SubWeaponDelay());
                     activeCharacter.Mana -= (activeCharacter.Subweapon == 5 ? 3 : 1);
                     UpdateMeters();
@@ -306,6 +321,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && Time.time > damageDelay + 0.5f)
         {
+            Instantiate(damageSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             damaged = true;
             animator.SetBool("Damaged", true);
             damageDelay = Time.time;
@@ -333,6 +349,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.collider.CompareTag("Enemy") && Time.time > damageDelay + 0.5f)
         {
+            Instantiate(damageSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             damaged = true;
             animator.SetBool("Damaged", true);
             damageDelay = Time.time;
@@ -400,6 +417,10 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator LevelUp()
     {
+        music.Stop();
+        music.clip = levelClear;
+        music.loop = false;
+        music.Play();
         yield return new WaitForSeconds(3);
         levelPanel.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
@@ -422,6 +443,9 @@ public class PlayerController : MonoBehaviour
             win = false;
             level = true;
             levelPanel.gameObject.SetActive(false);
+            music.clip = level2Music;
+            music.loop = true;
+            music.Play();
         }
     }
 
@@ -501,6 +525,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Boundary"))
         {
+            Instantiate(damageSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             animator.SetBool("Damaged", true);
             damageDelay = Time.time;
             activeCharacter.Health -= 3;

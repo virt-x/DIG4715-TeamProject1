@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public string enemyName;
     private Rigidbody2D body;
-    public GameObject player;
+    public GameObject player, hitSound;
     private int aiOption;
     private float optionDelay, damageTime;
     private bool floor;
@@ -96,6 +96,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Attack"))
         {
+            Instantiate(hitSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
             health--;
             damageTime = Time.time + 0.5f;
             StartCoroutine(DamageFlash());

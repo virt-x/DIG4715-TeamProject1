@@ -147,5 +147,7 @@ MonoBehaviour:
   speed: 0.04
   enemyName: medusa
   player: {fileID: 0}
+  hitSound: {fileID: 3723597428472204206, guid: 5c875a8aca04b2c49b2995f634559f9e,
+    type: 3}
   particles: {fileID: 2614398777841003270, guid: 9697329c0b8a13e489adc8e1b7efe3c4,
     type: 3}

@@ -6,7 +6,7 @@ public class SubweaponController : MonoBehaviour
 {
     public int id;
     private float startTime;
-    public GameObject rosaryFlame;
+    public GameObject rosaryFlame, breakSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +54,7 @@ public class SubweaponController : MonoBehaviour
         }
         if (id == 6)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x * 0.05f, 0f));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x * 0.1f, 0f));
             if (startTime + 1f < Time.time)
             {
                 Destroy(gameObject);
@@ -75,10 +75,12 @@ public class SubweaponController : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
+                Instantiate(breakSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
                 Destroy(gameObject);
             }
             if (collision.CompareTag("Floor"))
             {
+                Instantiate(breakSound, new Vector3(transform.position.x, transform.position.y), new Quaternion());
                 GameObject flame = Instantiate(rosaryFlame, new Vector3(transform.position.x, transform.position.y + 0.5f), new Quaternion());
                 flame.transform.localScale = new Vector3(flame.transform.localScale.x * Mathf.Sign(transform.localScale.x), flame.transform.localScale.y, flame.transform.localScale.z);
                 Destroy(gameObject);

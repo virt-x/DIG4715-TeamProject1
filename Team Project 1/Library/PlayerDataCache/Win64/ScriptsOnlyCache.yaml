@@ -6,9 +6,11 @@ ScriptsOnlyBuild:
     - EnemyController
     - GameOver
     - MainMenu
+    - MusicFade
     - ParticleController
     - PickupController
     - PlayerController
+    - SoundKiller
     - Spawner
     - SubweaponController
     Unity.2D.Tilemap.Editor.dll:
@@ -25,8 +27,10 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -49,6 +53,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -66,7 +74,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11374}
     - Class: 114
+      Script: {instanceID: 11474}
+    - Class: 114
       Script: {instanceID: 11510}
+    - Class: 114
+      Script: {instanceID: 46656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -98,6 +110,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -119,7 +135,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11134}
     - Class: 114
+      Script: {instanceID: 11474}
+    - Class: 114
       Script: {instanceID: 11510}
+    - Class: 114
+      Script: {instanceID: 46656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,6 +177,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -193,6 +217,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11510}
     - Class: 114
       Script: {instanceID: 11582}
+    - Class: 114
+      Script: {instanceID: 23882}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -236,6 +262,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -253,7 +283,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11374}
     - Class: 114
+      Script: {instanceID: 11474}
+    - Class: 114
       Script: {instanceID: 11510}
+    - Class: 114
+      Script: {instanceID: 46656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -301,7 +335,7 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: 30d69437d45493ba88948e6bb5f7cbe1
+      Hash: f18529c89bc4d5975ee04ff35dd7ee43
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SubweaponController
@@ -469,7 +503,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: c72593f6ffb5526bb60b1d4c533a731a
+      Hash: aeabdf7da5578377015028dbd61fb895
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BreakableController
@@ -499,12 +533,6 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WinGame
-  - hash:
-      serializedVersion: 2
       Hash: 6e4366ad17f4d3f97f24a1b6e72e0cb4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -517,7 +545,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 91d464e46978844c57ad4ae302ed2e64
+      Hash: 6b4b65ea8ce177cf83d48e00b456d924
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -703,7 +731,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 6bef554a41b4c81d2614759564fa348c
+      Hash: f46c7835a9b5bf7db7d5c534b676f2b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyController
@@ -745,10 +773,22 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 479f651c66d27966ba67da12a7cfdde7
+      Hash: 1025af1c4d67721136685e71e6e36fe2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PickupController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundKiller
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MusicFade
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

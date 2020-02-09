@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
+  hitSound: {fileID: 3723597428472204206, guid: 5c875a8aca04b2c49b2995f634559f9e,
+    type: 3}
 --- !u!61 &1760476003672421723
 BoxCollider2D:
   m_ObjectHideFlags: 0

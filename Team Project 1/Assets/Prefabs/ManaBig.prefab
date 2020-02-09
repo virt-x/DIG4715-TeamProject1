@@ -145,3 +145,5 @@ MonoBehaviour:
   id: 1
   magic: {fileID: 117873765456337192, guid: a183078075ad2fe4fb1ab7d9ff512219, type: 3}
   mana: {fileID: 9117889918734180612}
+  breakSound: {fileID: 4595332859203085506, guid: bff1e33235e46a545b7b493dda7c9725,
+    type: 3}

@@ -145,3 +145,5 @@ MonoBehaviour:
   id: 3
   rosaryFlame: {fileID: 6429187167920948925, guid: 0e126a7c8ad659242917f57556e0ad0f,
     type: 3}
+  breakSound: {fileID: 2220822895510087985, guid: 0c6cbc064f0f7014796f5afe1ae500ac,
+    type: 3}
