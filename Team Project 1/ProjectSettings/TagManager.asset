@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Floor
   - Enemy
+  - Attack
+  - Pickup
+  - Boundary
+  - Win
   layers:
   - Default
   - TransparentFX
@@ -42,4 +46,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1847604573
+    locked: 0
+  - name: Level
+    uniqueID: 3817916299
+    locked: 0
+  - name: Objects
+    uniqueID: 4134975115
+    locked: 0
+  - name: Enemies
+    uniqueID: 3460753817
+    locked: 0
+  - name: Player
+    uniqueID: 4128273573
     locked: 0

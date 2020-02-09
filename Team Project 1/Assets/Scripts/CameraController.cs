@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset;
+    public GameObject player,scrollLimitL,scrollLimitR;
+    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +25,19 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         transform.position = new Vector3(player.transform.position.x, offset.y, offset.z);
+        if (scrollLimitL != null)
+        {
+            if (transform.position.x < scrollLimitL.transform.position.x)
+            {
+                transform.position = new Vector3(scrollLimitL.transform.position.x, offset.y, offset.z);
+            }
+        }
+        if (scrollLimitR != null)
+        {
+            if (transform.position.x > scrollLimitR.transform.position.x)
+            {
+                transform.position = new Vector3(scrollLimitR.transform.position.x, offset.y, offset.z);
+            }
+        }
     }
 }
